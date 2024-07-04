@@ -24,9 +24,9 @@ public class LinkedList<Element> {
 
     public func append(_ value: Element) {
         let newNode = LinkedListNode(value: value)
-        if let lastNode = head {
-            while lastNode.next != nil {
-                lastNode = lastNode.next!
+        if var lastNode = head { // Use `var` to allow reassignment
+            while let next = lastNode.next {
+                lastNode = next
             }
             lastNode.next = newNode
         } else {
